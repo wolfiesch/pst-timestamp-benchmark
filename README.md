@@ -102,9 +102,12 @@ func main() {
 ### Bash (`bash/pst-timestamp.sh`)
 ```bash
 #!/bin/bash
+# Outputs current Pacific time in MM/DD/YYYY HH:MM AM/PM format
+# Automatically handles PST/PDT transitions
+
 TZ='America/Los_Angeles' date '+%m/%d/%Y %I:%M %p %Z'
 ```
-**Why it's simple**: Leverages system `date` command, 5 lines, no dependencies.
+**Why it's simple**: Leverages system `date` command, minimal code, no dependencies.
 
 ### Python (`python/pst-timestamp.py`)
 ```python
@@ -141,10 +144,25 @@ console.log(formatted);
 
 ### Bun (`bun/pst-timestamp.ts`)
 ```typescript
-// Same as Node.js but with TypeScript types
-// Runs on Bun runtime instead of Node.js
+const now = new Date();
+const options: Intl.DateTimeFormatOptions = {
+  timeZone: 'America/Los_Angeles',
+  month: '2-digit',
+  day: '2-digit',
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: true,
+  timeZoneName: 'short'
+};
+
+const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(now);
+const get = (type: string) => parts.find(p => p.type === type)?.value || '';
+
+const formatted = `${get('month')}/${get('day')}/${get('year')} ${get('hour')}:${get('minute')} ${get('dayPeriod')} ${get('timeZoneName')}`;
+console.log(formatted);
 ```
-**Why it's faster than Node**: Modern JavaScript engine (JavaScriptCore), optimized startup time.
+**Why it's faster than Node**: Modern JavaScript engine (JavaScriptCore), optimized startup time, native TypeScript support.
 
 ## 🔬 Methodology
 
