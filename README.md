@@ -94,10 +94,10 @@ func main() {
 
 ### Rust (`rust/pst-timestamp`)
 ```rust
-// Compiled binary (source not included in repo)
+// Compiled binary only (source not shown)
 // Uses chrono crate for timezone support
 ```
-**Why it's larger**: Statically links LLVM runtime and timezone database, includes safety checks.
+**Why it's larger**: Statically links LLVM runtime and timezone database, includes safety checks. The binary is provided in the `rust/` directory.
 
 ### Bash (`bash/pst-timestamp.sh`)
 ```bash
@@ -237,8 +237,8 @@ Uses Plotly with a custom dark cyberpunk theme optimized for GitHub.
 - ❌ Complex build process, manual memory management
 
 **Go**: Web services, CLIs, distributed systems, cloud infrastructure
-- ✅ Fast compilation, simple concurrency, single binary deployment
-- ❌ Larger binaries, no generics (until recently)
+- ✅ Fast compilation, simple concurrency, single binary deployment, generics support
+- ❌ Larger binaries, verbose error handling
 
 **Rust**: Systems programming with safety, WebAssembly, performance-critical services
 - ✅ Memory safety without GC, modern tooling
