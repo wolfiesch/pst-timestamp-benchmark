@@ -20,9 +20,9 @@ Benchmarked with [hyperfine](https://github.com/sharkdp/hyperfine) (500 runs eac
 
 | Language | Mean [ms] | Min [ms] | Max [ms] | Relative | Binary Size | LOC |
 |:---------|----------:|---------:|---------:|---------:|------------:|----:|
-| **C++** 🥇 | **1.6 ± 0.2** | 1.2 | 2.9 | **1.00x** | 36 KB | 16 |
+| **C++** 🥇 | **1.6 ± 0.2** | 1.2 | 2.9 | **1.00x** | 36 kB | 16 |
 | **Go** 🥈 | **2.2 ± 0.6** | 1.7 | 7.0 | **1.44x** | 2.4 MB | 14 |
-| **Rust** 🥉 | **3.1 ± 0.5** | 2.2 | 6.6 | **1.95x** | 448 KB | 50 |
+| **Rust** 🥉 | **3.1 ± 0.5** | 2.2 | 6.6 | **1.95x** | 448 kB | 50 |
 | **Bash** | 6.7 ± 1.9 | 5.0 | 35.7 | 4.26x | 175 B | 5 |
 | **Bun** | 17.3 ± 1.8 | 15.1 | 38.5 | 11.06x | 603 B | 18 |
 | **Python** | 30.0 ± 2.4 | 26.8 | 64.2 | 19.19x | 180 B | 6 |
@@ -30,10 +30,10 @@ Benchmarked with [hyperfine](https://github.com/sharkdp/hyperfine) (500 runs eac
 
 ### Key Findings
 
-- **🏆 C++ is the clear winner** - fastest execution (1.6ms) with reasonable binary size (36KB)
+- **🏆 C++ is the clear winner** - fastest execution (1.6ms) with reasonable binary size (36 kB)
 - **🚀 Compiled languages dominate** - C++, Go, and Rust are 4-24x faster than interpreted/JIT languages
 - **⚖️ The Tradeoff**: Go is 37% slower than C++ but compiles trivially and has simpler code
-- **📦 Size Matters**: Rust's safety features and static linking add 12x more binary size than C++
+- **📦 Size Matters**: Rust's binary is 12x larger than C++ due to static linking and safety features
 - **🐌 JavaScript Runtime Tax**: Node.js is 23x slower than C++, even for trivial I/O
 - **⚡ Bun is 2.2x faster** than Node.js, demonstrating modern JS runtime improvements
 - **💡 Python & Bash**: Great for scripting but pay significant performance penalty
@@ -237,7 +237,7 @@ Uses Plotly with a custom dark cyberpunk theme optimized for GitHub.
 - ❌ Complex build process, manual memory management
 
 **Go**: Web services, CLIs, distributed systems, cloud infrastructure
-- ✅ Fast compilation, simple concurrency, single binary deployment, generics support
+- ✅ Fast compilation, simple concurrency, single binary deployment
 - ❌ Larger binaries, verbose error handling
 
 **Rust**: Systems programming with safety, WebAssembly, performance-critical services
